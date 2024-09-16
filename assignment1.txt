@@ -1,1 +1,24 @@
 1)curl -s google.com | tee file1.txt | tee file2.txt > /dev/null
+
+2)Three standard file descriptors:
+
+   
+Standard In	stdin	             Input from the keyboard
+Standard Out	stdout	             Output to the console
+Standard Error	stderr	              Error output to the console
+
+3)What is the significance of 2>&1 ?
+To combine stderr and stdout into the stdout stream, we append this to a command:
+>& is the syntax to redirect a stream to another file descriptor:
+
+    0 is stdin
+    1 is stdout
+    2 is stderr
+    
+    Symbol > means redirection.
+
+    > means send to as a whole completed file, overwriting target if exist 
+    
+    2>&1 redirects the standard error (file descriptor 2) to the same location as the standard output (file descriptor 1). This is useful for combining error messages and regular output into one stream, often to a file or another process.
+
+
